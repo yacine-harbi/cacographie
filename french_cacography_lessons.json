@@ -1,0 +1,814 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "phrase": "Je suis un éléve.",
+      "errorIndex": 3,
+      "correction": "élève",
+      "explanation": "Il manque l'accent grave sur la voyelle.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 2,
+      "phrase": "Les chien courent vite.",
+      "errorIndex": 1,
+      "correction": "chiens",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 3,
+      "phrase": "Il a mangé une pomme.",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "La phrase est correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 4,
+      "phrase": "Nous avons eté surpris.",
+      "errorIndex": 3,
+      "correction": "été",
+      "explanation": "Le participe passé 'été' prend un accent circonflexe.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 5,
+      "phrase": "Un gateau au chocolat.",
+      "errorIndex": 1,
+      "correction": "gâteau",
+      "explanation": "Le mot 'gâteau' prend un accent circonflexe.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 6,
+      "phrase": "Ces enfant jouent.",
+      "errorIndex": 1,
+      "correction": "enfants",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 7,
+      "phrase": "Je vais à l'ecole.",
+      "errorIndex": 4,
+      "correction": "école",
+      "explanation": "Le mot 'école' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 8,
+      "phrase": "Ils ont trois chevals.",
+      "errorIndex": 3,
+      "correction": "chevaux",
+      "explanation": "Le pluriel de 'cheval' est 'chevaux'.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 9,
+      "phrase": "Il fait beau aujourd'hui.",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 10,
+      "phrase": "Le soleil brille eclatant.",
+      "errorIndex": 3,
+      "correction": "éclatant",
+      "explanation": "Le mot 'éclatant' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 11,
+      "phrase": "Les maison sont grandes.",
+      "errorIndex": 1,
+      "correction": "maisons",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 12,
+      "phrase": "Un arbre vert.",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 13,
+      "phrase": "J'aime le the chaud.",
+      "errorIndex": 3,
+      "correction": "thé",
+      "explanation": "Le mot 'thé' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 14,
+      "phrase": "Elle porte une robe bleu.",
+      "errorIndex": 4,
+      "correction": "bleue",
+      "explanation": "L'adjectif de couleur doit s'accorder avec 'robe'.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 15,
+      "phrase": "Il boit du cafe.",
+      "errorIndex": 3,
+      "correction": "café",
+      "explanation": "Le mot 'café' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 16,
+      "phrase": "Je suis un éléve!",
+      "errorIndex": 3,
+      "correction": "élève",
+      "explanation": "Il manque l'accent grave sur la voyelle.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 17,
+      "phrase": "Les chien courent vite!",
+      "errorIndex": 1,
+      "correction": "chiens",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 18,
+      "phrase": "Il a mangé une pomme!",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "La phrase est correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 19,
+      "phrase": "Nous avons eté surpris!",
+      "errorIndex": 3,
+      "correction": "été",
+      "explanation": "Le participe passé 'été' prend un accent circonflexe.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 20,
+      "phrase": "Un gateau au chocolat!",
+      "errorIndex": 1,
+      "correction": "gâteau",
+      "explanation": "Le mot 'gâteau' prend un accent circonflexe.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 21,
+      "phrase": "Ces enfant jouent!",
+      "errorIndex": 1,
+      "correction": "enfants",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 22,
+      "phrase": "Je vais à l'ecole!",
+      "errorIndex": 4,
+      "correction": "école",
+      "explanation": "Le mot 'école' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 23,
+      "phrase": "Ils ont trois chevals!",
+      "errorIndex": 3,
+      "correction": "chevaux",
+      "explanation": "Le pluriel de 'cheval' est 'chevaux'.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 24,
+      "phrase": "Il fait beau aujourd'hui!",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 25,
+      "phrase": "Le soleil brille eclatant!",
+      "errorIndex": 3,
+      "correction": "éclatant",
+      "explanation": "Le mot 'éclatant' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 26,
+      "phrase": "Les maison sont grandes!",
+      "errorIndex": 1,
+      "correction": "maisons",
+      "explanation": "Le nom doit être au pluriel.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 27,
+      "phrase": "Un arbre vert!",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "facile",
+      "categorie": "aucune"
+    },
+    {
+      "id": 28,
+      "phrase": "J'aime le the chaud!",
+      "errorIndex": 3,
+      "correction": "thé",
+      "explanation": "Le mot 'thé' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 29,
+      "phrase": "Elle porte une robe bleu!",
+      "errorIndex": 4,
+      "correction": "bleue",
+      "explanation": "L'adjectif de couleur doit s'accorder avec 'robe'.",
+      "difficulty": "facile",
+      "categorie": "accords"
+    },
+    {
+      "id": 30,
+      "phrase": "Il boit du cafe!",
+      "errorIndex": 3,
+      "correction": "café",
+      "explanation": "Le mot 'café' prend un accent aigu.",
+      "difficulty": "facile",
+      "categorie": "accents"
+    },
+    {
+      "id": 31,
+      "phrase": "Il c'est levé tard.",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Il s'est levé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 32,
+      "phrase": "Nous allont au marché.",
+      "errorIndex": 1,
+      "correction": "allons",
+      "explanation": "La conjugaison correcte est 'nous allons'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 33,
+      "phrase": "Ils prenne le bus.",
+      "errorIndex": 1,
+      "correction": "prennent",
+      "explanation": "La conjugaison correcte est 'ils prennent'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 34,
+      "phrase": "Elle à beaucoup travaillé.",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'elle a' sans accent.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 35,
+      "phrase": "Je croi en toi.",
+      "errorIndex": 1,
+      "correction": "crois",
+      "explanation": "La forme correcte est 'je crois'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 36,
+      "phrase": "Il est venu et à mangé.",
+      "errorIndex": 4,
+      "correction": "a",
+      "explanation": "On écrit 'et a mangé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 37,
+      "phrase": "Nous somme contents.",
+      "errorIndex": 1,
+      "correction": "sommes",
+      "explanation": "La conjugaison correcte est 'nous sommes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 38,
+      "phrase": "Tu prendras des vacances.",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "moyen",
+      "categorie": "aucune"
+    },
+    {
+      "id": 39,
+      "phrase": "Il faut que tu vien.",
+      "errorIndex": 4,
+      "correction": "viennes",
+      "explanation": "Subjonctif: 'que tu viennes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 40,
+      "phrase": "Ils c'étaient cachés.",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Ils s'étaient cachés'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 41,
+      "phrase": "Il c'est levé tard?",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Il s'est levé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 42,
+      "phrase": "Nous allont au marché?",
+      "errorIndex": 1,
+      "correction": "allons",
+      "explanation": "La conjugaison correcte est 'nous allons'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 43,
+      "phrase": "Ils prenne le bus?",
+      "errorIndex": 1,
+      "correction": "prennent",
+      "explanation": "La conjugaison correcte est 'ils prennent'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 44,
+      "phrase": "Elle à beaucoup travaillé?",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'elle a' sans accent.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 45,
+      "phrase": "Je croi en toi?",
+      "errorIndex": 1,
+      "correction": "crois",
+      "explanation": "La forme correcte est 'je crois'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 46,
+      "phrase": "Il est venu et à mangé?",
+      "errorIndex": 4,
+      "correction": "a",
+      "explanation": "On écrit 'et a mangé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 47,
+      "phrase": "Nous somme contents?",
+      "errorIndex": 1,
+      "correction": "sommes",
+      "explanation": "La conjugaison correcte est 'nous sommes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 48,
+      "phrase": "Tu prendras des vacances?",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "moyen",
+      "categorie": "aucune"
+    },
+    {
+      "id": 49,
+      "phrase": "Il faut que tu vien?",
+      "errorIndex": 4,
+      "correction": "viennes",
+      "explanation": "Subjonctif: 'que tu viennes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 50,
+      "phrase": "Ils c'étaient cachés?",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Ils s'étaient cachés'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 51,
+      "phrase": "Il c'est levé tard?",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Il s'est levé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 52,
+      "phrase": "Nous allont au marché?",
+      "errorIndex": 1,
+      "correction": "allons",
+      "explanation": "La conjugaison correcte est 'nous allons'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 53,
+      "phrase": "Ils prenne le bus?",
+      "errorIndex": 1,
+      "correction": "prennent",
+      "explanation": "La conjugaison correcte est 'ils prennent'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 54,
+      "phrase": "Elle à beaucoup travaillé?",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'elle a' sans accent.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 55,
+      "phrase": "Je croi en toi?",
+      "errorIndex": 1,
+      "correction": "crois",
+      "explanation": "La forme correcte est 'je crois'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 56,
+      "phrase": "Il est venu et à mangé?",
+      "errorIndex": 4,
+      "correction": "a",
+      "explanation": "On écrit 'et a mangé'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 57,
+      "phrase": "Nous somme contents?",
+      "errorIndex": 1,
+      "correction": "sommes",
+      "explanation": "La conjugaison correcte est 'nous sommes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 58,
+      "phrase": "Tu prendras des vacances?",
+      "errorIndex": null,
+      "correction": null,
+      "explanation": "Phrase correcte.",
+      "difficulty": "moyen",
+      "categorie": "aucune"
+    },
+    {
+      "id": 59,
+      "phrase": "Il faut que tu vien?",
+      "errorIndex": 4,
+      "correction": "viennes",
+      "explanation": "Subjonctif: 'que tu viennes'.",
+      "difficulty": "moyen",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 60,
+      "phrase": "Ils c'étaient cachés?",
+      "errorIndex": 1,
+      "correction": "s'",
+      "explanation": "On écrit 'Ils s'étaient cachés'.",
+      "difficulty": "moyen",
+      "categorie": "homophones"
+    },
+    {
+      "id": 61,
+      "phrase": "Les enfants ce sont amusés.",
+      "errorIndex": 2,
+      "correction": "se",
+      "explanation": "On écrit 'se sont' et non 'ce sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 62,
+      "phrase": "Elle s'est apperçue de l'erreur.",
+      "errorIndex": 3,
+      "correction": "aperçue",
+      "explanation": "Le verbe s'orthographie 'apercevoir'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 63,
+      "phrase": "Ils ont vécus de belles aventures.",
+      "errorIndex": 3,
+      "correction": "vécu",
+      "explanation": "Le participe passé 'vécu' est invariable.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 64,
+      "phrase": "Nous nous somme parlé.",
+      "errorIndex": 3,
+      "correction": "sommes",
+      "explanation": "La forme correcte est 'nous nous sommes parlé'.",
+      "difficulty": "difficile",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 65,
+      "phrase": "Les filles se sont lavées les mains.",
+      "errorIndex": 5,
+      "correction": "lavé",
+      "explanation": "Le verbe 'se laver les mains' ne s'accorde pas.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 66,
+      "phrase": "Il a eu tord de partir.",
+      "errorIndex": 3,
+      "correction": "tort",
+      "explanation": "On écrit 'avoir tort' et non 'tord'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 67,
+      "phrase": "Je me suis rapellé de toi.",
+      "errorIndex": 3,
+      "correction": "rappelé",
+      "explanation": "Le verbe 'rappeler' prend deux 'p'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 68,
+      "phrase": "Ils sont tous prés.",
+      "errorIndex": 4,
+      "correction": "prêts",
+      "explanation": "On écrit 'prêts' avec un accent circonflexe.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 69,
+      "phrase": "Elles ce sont promenées.",
+      "errorIndex": 1,
+      "correction": "se",
+      "explanation": "On écrit 'elles se sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 70,
+      "phrase": "Il à fallut attendre.",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'il a fallu'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 71,
+      "phrase": "Les enfants ce sont amusés...",
+      "errorIndex": 2,
+      "correction": "se",
+      "explanation": "On écrit 'se sont' et non 'ce sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 72,
+      "phrase": "Elle s'est apperçue de l'erreur...",
+      "errorIndex": 3,
+      "correction": "aperçue",
+      "explanation": "Le verbe s'orthographie 'apercevoir'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 73,
+      "phrase": "Ils ont vécus de belles aventures...",
+      "errorIndex": 3,
+      "correction": "vécu",
+      "explanation": "Le participe passé 'vécu' est invariable.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 74,
+      "phrase": "Nous nous somme parlé...",
+      "errorIndex": 3,
+      "correction": "sommes",
+      "explanation": "La forme correcte est 'nous nous sommes parlé'.",
+      "difficulty": "difficile",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 75,
+      "phrase": "Les filles se sont lavées les mains...",
+      "errorIndex": 5,
+      "correction": "lavé",
+      "explanation": "Le verbe 'se laver les mains' ne s'accorde pas.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 76,
+      "phrase": "Il a eu tord de partir...",
+      "errorIndex": 3,
+      "correction": "tort",
+      "explanation": "On écrit 'avoir tort' et non 'tord'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 77,
+      "phrase": "Je me suis rapellé de toi...",
+      "errorIndex": 3,
+      "correction": "rappelé",
+      "explanation": "Le verbe 'rappeler' prend deux 'p'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 78,
+      "phrase": "Ils sont tous prés...",
+      "errorIndex": 4,
+      "correction": "prêts",
+      "explanation": "On écrit 'prêts' avec un accent circonflexe.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 79,
+      "phrase": "Elles ce sont promenées...",
+      "errorIndex": 1,
+      "correction": "se",
+      "explanation": "On écrit 'elles se sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 80,
+      "phrase": "Il à fallut attendre...",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'il a fallu'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 81,
+      "phrase": "Les enfants ce sont amusés...",
+      "errorIndex": 2,
+      "correction": "se",
+      "explanation": "On écrit 'se sont' et non 'ce sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 82,
+      "phrase": "Elle s'est apperçue de l'erreur...",
+      "errorIndex": 3,
+      "correction": "aperçue",
+      "explanation": "Le verbe s'orthographie 'apercevoir'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 83,
+      "phrase": "Ils ont vécus de belles aventures...",
+      "errorIndex": 3,
+      "correction": "vécu",
+      "explanation": "Le participe passé 'vécu' est invariable.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 84,
+      "phrase": "Nous nous somme parlé...",
+      "errorIndex": 3,
+      "correction": "sommes",
+      "explanation": "La forme correcte est 'nous nous sommes parlé'.",
+      "difficulty": "difficile",
+      "categorie": "conjugaisons"
+    },
+    {
+      "id": 85,
+      "phrase": "Les filles se sont lavées les mains...",
+      "errorIndex": 5,
+      "correction": "lavé",
+      "explanation": "Le verbe 'se laver les mains' ne s'accorde pas.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 86,
+      "phrase": "Il a eu tord de partir...",
+      "errorIndex": 3,
+      "correction": "tort",
+      "explanation": "On écrit 'avoir tort' et non 'tord'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 87,
+      "phrase": "Je me suis rapellé de toi...",
+      "errorIndex": 3,
+      "correction": "rappelé",
+      "explanation": "Le verbe 'rappeler' prend deux 'p'.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 88,
+      "phrase": "Ils sont tous prés...",
+      "errorIndex": 4,
+      "correction": "prêts",
+      "explanation": "On écrit 'prêts' avec un accent circonflexe.",
+      "difficulty": "difficile",
+      "categorie": "accords"
+    },
+    {
+      "id": 89,
+      "phrase": "Elles ce sont promenées...",
+      "errorIndex": 1,
+      "correction": "se",
+      "explanation": "On écrit 'elles se sont'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    },
+    {
+      "id": 90,
+      "phrase": "Il à fallut attendre...",
+      "errorIndex": 1,
+      "correction": "a",
+      "explanation": "On écrit 'il a fallu'.",
+      "difficulty": "difficile",
+      "categorie": "homophones"
+    }
+  ]
+}
