@@ -57,10 +57,544 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS and React Components with full application code -->
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .word-clickable {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .word-clickable:hover {
+            background-color: #e5f3ff;
+            transform: translateY(-1px);
+        }
+        
+        .word-correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .word-incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            animation: shake 0.5s;
+        }
+        
+        .hearts {
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bounce-animation {
+            animation: bounce 0.6s ease;
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+        
+        .lesson-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-duolingo-gray-100 min-h-screen">
     <div id="root"></div>
-    <!-- Complete React application with all game logic -->
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion, AnimatePresence } = FramerMotion;
+
+        // Lesson data with French spelling exercises
+        const lessonsData = {
+            easy: [
+                {
+                    id: 1,
+                    title: "Les animaux domestiques",
+                    description: "Apprenez l'orthographe des animaux de compagnie",
+                    difficulty: "Facile",
+                    xp: 10,
+                    sentences: [
+                        {
+                            text: "Mon shat mange ses croquettes.",
+                            errors: [{ word: "shat", correct: "chat", position: 1 }],
+                            translation: "My cat is eating its kibble."
+                        },
+                        {
+                            text: "Le shien aboie fort dans le jardin.",
+                            errors: [{ word: "shien", correct: "chien", position: 1 }],
+                            translation: "The dog barks loudly in the garden."
+                        },
+                        {
+                            text: "L'oizeau chante mélodieusement.",
+                            errors: [{ word: "oizeau", correct: "oiseau", position: 1 }],
+                            translation: "The bird sings melodiously."
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "La famille",
+                    description: "Les mots de la famille",
+                    difficulty: "Facile",
+                    xp: 10,
+                    sentences: [
+                        {
+                            text: "Ma mère prépare le dîner.",
+                            errors: [{ word: "mère", correct: "mère", position: 1 }],
+                            translation: "My mother prepares dinner."
+                        },
+                        {
+                            text: "Mon père lit le journale.",
+                            errors: [{ word: "journale", correct: "journal", position: 4 }],
+                            translation: "My father reads the newspaper."
+                        }
+                    ]
+                }
+            ],
+            medium: [
+                {
+                    id: 3,
+                    title: "Les homophones",
+                    description: "Distinguer les homophones courants",
+                    difficulty: "Moyen",
+                    xp: 15,
+                    sentences: [
+                        {
+                            text: "Il va a l'école tous les jours.",
+                            errors: [{ word: "a", correct: "à", position: 2 }],
+                            translation: "He goes to school every day."
+                        },
+                        {
+                            text: "Elle à terminé ses devoirs.",
+                            errors: [{ word: "à", correct: "a", position: 1 }],
+                            translation: "She finished her homework."
+                        },
+                        {
+                            text: "Ou est-ce que tu vas ?",
+                            errors: [{ word: "Ou", correct: "Où", position: 0 }],
+                            translation: "Where are you going?"
+                        }
+                    ]
+                }
+            ],
+            hard: [
+                {
+                    id: 4,
+                    title: "Conjugaison complexe",
+                    description: "Subjonctif et conditionnel",
+                    difficulty: "Difficile",
+                    xp: 25,
+                    sentences: [
+                        {
+                            text: "Il faut que nous finissions ce projet.",
+                            errors: [{ word: "finissions", correct: "finissions", position: 4 }],
+                            translation: "We need to finish this project."
+                        },
+                        {
+                            text: "Si j'étais riche, j'acheterais une maison.",
+                            errors: [{ word: "j'acheterais", correct: "j'achèterais", position: 4 }],
+                            translation: "If I were rich, I would buy a house."
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Custom hook for localStorage
+        const useLocalStorage = (key, initialValue) => {
+            const [storedValue, setStoredValue] = useState(() => {
+                try {
+                    const item = window.localStorage.getItem(key);
+                    return item ? JSON.parse(item) : initialValue;
+                } catch (error) {
+                    console.log(error);
+                    return initialValue;
+                }
+            });
+
+            const setValue = (value) => {
+                try {
+                    setStoredValue(value);
+                    window.localStorage.setItem(key, JSON.stringify(value));
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+
+            return [storedValue, setValue];
+        };
+
+        // Header Component
+        const Header = ({ xp, hearts, streak }) => (
+            <motion.header 
+                className="bg-white shadow-sm border-b-2 border-duolingo-gray-200"
+                initial={{ y: -50 }}
+                animate={{ y: 0 }}
+            >
+                <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                        <h1 className="text-2xl font-bold text-duolingo-green">Cacography</h1>
+                        <div className="hidden md:flex items-center space-x-4">
+                            <div className="flex items-center space-x-2">
+                                <span className="text-duolingo-orange text-xl">🔥</span>
+                                <span className="font-semibold text-duolingo-gray-600">{streak}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-2">
+                            <span className="text-duolingo-blue text-xl">💎</span>
+                            <span className="font-bold text-duolingo-blue">{xp} XP</span>
+                        </div>
+                        <div className="flex items-center space-x-1 hearts">
+                            {[...Array(5)].map((_, i) => (
+                                <span key={i} className={`text-xl ${i < hearts ? 'text-red-500' : 'text-duolingo-gray-300'}`}>❤️</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </motion.header>
+        );
+
+        // Progress Bar Component
+        const ProgressBar = ({ current, total }) => {
+            const percentage = (current / total) * 100;
+            
+            return (
+                <div className="w-full bg-duolingo-gray-200 rounded-full h-4 mb-6">
+                    <motion.div 
+                        className="bg-duolingo-green h-4 rounded-full progress-bar"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${percentage}%` }}
+                        transition={{ duration: 0.5 }}
+                    />
+                </div>
+            );
+        };
+
+        // Lesson Card Component
+        const LessonCard = ({ lesson, onStart, isLocked }) => (
+            <motion.div
+                className={`lesson-card bg-white rounded-lg p-6 shadow-lg border-b-4 ${
+                    isLocked 
+                        ? 'border-duolingo-gray-300 opacity-50' 
+                        : lesson.difficulty === 'Facile' 
+                            ? 'border-duolingo-green' 
+                            : lesson.difficulty === 'Moyen' 
+                                ? 'border-duolingo-blue' 
+                                : 'border-duolingo-purple'
+                }`}
+                whileHover={!isLocked ? { scale: 1.02 } : {}}
+                whileTap={!isLocked ? { scale: 0.98 } : {}}
+            >
+                <div className="flex items-center justify-between mb-4">
+                    <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                        lesson.difficulty === 'Facile' 
+                            ? 'bg-duolingo-green text-white' 
+                            : lesson.difficulty === 'Moyen' 
+                                ? 'bg-duolingo-blue text-white' 
+                                : 'bg-duolingo-purple text-white'
+                    }`}> 
+                        {lesson.difficulty}
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <span className="text-duolingo-blue">💎</span>
+                        <span className="font-semibold text-duolingo-gray-600">{lesson.xp} XP</span>
+                    </div>
+                </div>
+                
+                <h3 className="text-xl font-bold text-duolingo-gray-800 mb-2">{lesson.title}</h3>
+                <p className="text-duolingo-gray-600 mb-4">{lesson.description}</p>
+                
+                <motion.button
+                    className={`w-full py-3 px-4 rounded-lg font-bold text-white shadow-duolingo ${
+                        isLocked 
+                            ? 'bg-duolingo-gray-300 cursor-not-allowed' 
+                            : 'bg-duolingo-green hover:bg-duolingo-green-dark'
+                    }`}
+                    onClick={() => !isLocked && onStart(lesson)}
+                    disabled={isLocked}
+                    whileHover={!isLocked ? { y: -2 } : {}}
+                    whileTap={!isLocked ? { y: 0 } : {}}
+                >
+                    {isLocked ? '🔒 Bloqué' : 'Commencer'}
+                </motion.button>
+            </motion.div>
+        );
+
+        // Game Screen Component
+        const GameScreen = ({ lesson, onComplete, onBack }) => {
+            const [currentSentence, setCurrentSentence] = useState(0);
+            const [selectedWords, setSelectedWords] = useState([]);
+            const [showFeedback, setShowFeedback] = useState(false);
+            const [hearts, setHearts] = useState(5);
+            const [score, setScore] = useState(0);
+
+            const sentence = lesson.sentences[currentSentence];
+            const words = sentence.text.split(' ');
+
+            const handleWordClick = (word, index) => {
+                if (showFeedback) return;
+
+                const isError = sentence.errors.some(error => 
+                    error.word === word && error.position === index
+                );
+
+                if (isError) {
+                    setScore(score + 1);
+                    setSelectedWords([...selectedWords, { word, index, correct: true }]);
+                } else {
+                    setHearts(hearts - 1);
+                    setSelectedWords([...selectedWords, { word, index, correct: false }]);
+                }
+
+                setShowFeedback(true);
+                
+                setTimeout(() => {
+                    if (selectedWords.length + 1 >= sentence.errors.length || hearts <= 1) {
+                        if (currentSentence < lesson.sentences.length - 1) {
+                            setCurrentSentence(currentSentence + 1);
+                            setSelectedWords([]);
+                            setShowFeedback(false);
+                        } else {
+                            onComplete(score, hearts);
+                        }
+                    } else {
+                        setShowFeedback(false);
+                    }
+                }, 1500);
+            };
+
+            const getWordStyle = (word, index) => {
+                const selected = selectedWords.find(sw => sw.word === word && sw.index === index);
+                if (selected) {
+                    return selected.correct ? 'word-correct' : 'word-incorrect';
+                }
+                return 'word-clickable hover:bg-duolingo-blue/10';
+            };
+
+            return (
+                <motion.div 
+                    className="max-w-4xl mx-auto px-4 py-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                >
+                    <div className="bg-white rounded-lg shadow-lg p-8">
+                        <div className="flex items-center justify-between mb-6">
+                            <button 
+                                onClick={onBack}
+                                className="text-duolingo-gray-600 hover:text-duolingo-gray-800 text-2xl"
+                            >
+                                ← Retour
+                            </button>
+                            <div className="flex items-center space-x-1 hearts">
+                                {[...Array(5)].map((_, i) => (
+                                    <span key={i} className={`text-xl ${i < hearts ? 'text-red-500' : 'text-duolingo-gray-300'}`}>❤️</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <ProgressBar current={currentSentence + 1} total={lesson.sentences.length} />
+
+                        <div className="text-center mb-8">
+                            <h2 className="text-2xl font-bold text-duolingo-gray-800 mb-4">
+                                Trouvez les erreurs d'orthographe
+                            </h2>
+                            <p className="text-duolingo-gray-600">
+                                Cliquez sur les mots mal orthographiés
+                            </p>
+                        </div>
+
+                        <motion.div 
+                            className="text-center mb-8"
+                            key={currentSentence}
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                        >
+                            <div className="text-2xl leading-relaxed mb-4 p-6 bg-duolingo-gray-100 rounded-lg">
+                                {words.map((word, index) => (
+                                    <span
+                                        key={`${word}-${index}`}
+                                        className={`${getWordStyle(word, index)} inline-block mx-1`}
+                                        onClick={() => handleWordClick(word, index)}
+                                    >
+                                        {word}
+                                    </span>
+                                ))}
+                            </div>
+                            <p className="text-duolingo-gray-600 italic">
+                                "{sentence.translation}"
+                            </p>
+                        </motion.div>
+
+                        {showFeedback && (
+                            <motion.div
+                                className="text-center"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                            >
+                                {selectedWords[selectedWords.length - 1]?.correct ? (
+                                    <div className="text-duolingo-green text-xl font-bold bounce-animation">
+                                        ✅ Correct !
+                                    </div>
+                                ) : (
+                                    <div className="text-duolingo-red text-xl font-bold">
+                                        ❌ Essayez encore !
+                                    </div>
+                                )}
+                            </motion.div>
+                        )}
+                    </div>
+                </motion.div>
+            );
+        };
+
+        // Main App Component
+        const App = () => {
+            const [currentView, setCurrentView] = useState('home');
+            const [selectedLesson, setSelectedLesson] = useState(null);
+            const [userXp, setUserXp] = useLocalStorage('cacography_xp', 0);
+            const [userHearts, setUserHearts] = useLocalStorage('cacography_hearts', 5);
+            const [userStreak, setUserStreak] = useLocalStorage('cacography_streak', 0);
+            const [completedLessons, setCompletedLessons] = useLocalStorage('cacography_completed', []);
+
+            const startLesson = (lesson) => {
+                setSelectedLesson(lesson);
+                setCurrentView('game');
+            };
+
+            const completeLesson = (score, remainingHearts) => {
+                const earnedXp = selectedLesson.xp + (score * 5);
+                setUserXp(userXp + earnedXp);
+                setUserHearts(remainingHearts);
+                setUserStreak(userStreak + 1);
+                
+                if (!completedLessons.includes(selectedLesson.id)) {
+                    setCompletedLessons([...completedLessons, selectedLesson.id]);
+                }
+                
+                setCurrentView('home');
+            };
+
+            const backToHome = () => {
+                setCurrentView('home');
+                setSelectedLesson(null);
+            };
+
+            return (
+                <div className="min-h-screen bg-duolingo-gray-100">
+                    <Header xp={userXp} hearts={userHearts} streak={userStreak} />
+                    
+                    <AnimatePresence mode="wait">
+                        {currentView === 'home' && (
+                            <motion.div 
+                                className="max-w-6xl mx-auto px-4 py-8"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                            >
+                                <div className="text-center mb-12">
+                                    <h2 className="text-4xl font-bold text-duolingo-gray-800 mb-4">
+                                        Apprenez l'orthographe française
+                                    </h2>
+                                    <p className="text-xl text-duolingo-gray-600">
+                                        Améliorez vos compétences avec des exercices interactifs
+                                    </p>
+                                </div>
+
+                                {/* Easy Lessons */}
+                                <div className="mb-12">
+                                    <h3 className="text-2xl font-bold text-duolingo-green mb-6 flex items-center">
+                                        <span className="mr-3">🌱</span>
+                                        Niveau Facile
+                                    </h3>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {lessonsData.easy.map(lesson => (
+                                            <LessonCard
+                                                key={lesson.id}
+                                                lesson={lesson}
+                                                onStart={startLesson}
+                                                isLocked={false}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Medium Lessons */}
+                                <div className="mb-12">
+                                    <h3 className="text-2xl font-bold text-duolingo-blue mb-6 flex items-center">
+                                        <span className="mr-3">🌟</span>
+                                        Niveau Moyen
+                                    </h3>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {lessonsData.medium.map(lesson => (
+                                            <LessonCard
+                                                key={lesson.id}
+                                                lesson={lesson}
+                                                onStart={startLesson}
+                                                isLocked={completedLessons.length < 2}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Hard Lessons */}
+                                <div className="mb-12">
+                                    <h3 className="text-2xl font-bold text-duolingo-purple mb-6 flex items-center">
+                                        <span className="mr-3">🏆</span>
+                                        Niveau Difficile
+                                    </h3>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {lessonsData.hard.map(lesson => (
+                                            <LessonCard
+                                                key={lesson.id}
+                                                lesson={lesson}
+                                                onStart={startLesson}
+                                                isLocked={completedLessons.length < 3}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+
+                        {currentView === 'game' && selectedLesson && (
+                            <GameScreen
+                                lesson={selectedLesson}
+                                onComplete={completeLesson}
+                                onBack={backToHome}
+                            />
+                        )}
+                    </AnimatePresence>
+                </div>
+            );
+        };
+
+        // Render the app
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
